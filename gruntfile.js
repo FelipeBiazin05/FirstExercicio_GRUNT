@@ -1,6 +1,6 @@
 module.exports = function (grunt) {
     grunt.initConfig({
-        pkg: grunt.file.readJSON('package.json'),
+        pkg:grunt.file.readJSON('package.json'),
         less: {
             development: {
                 files: {
@@ -55,6 +55,10 @@ module.exports = function (grunt) {
                         {
                             match: 'ENDERECO_DO_CSS',
                             replacement: './styles/main.min.css'
+                        },
+                        {
+                            match: 'ENDERECO_DO_JS',
+                            replacement: './scripts/main.min.js'
                         }
                     ]
                 },
@@ -79,6 +83,7 @@ module.exports = function (grunt) {
                 }
             }
         },
+        clean: ['prebuild'],
         uglify: {
             target: {
                 files: {
@@ -86,7 +91,6 @@ module.exports = function (grunt) {
                 }
             }
         },
-        clean: ['prebuild']
     })
 
     grunt.loadNpmTasks('grunt-contrib-less');
